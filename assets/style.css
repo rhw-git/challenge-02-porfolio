@@ -1,0 +1,100 @@
+ /*make initial margin and padding to 0*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* global font type*/
+body {
+    font-family: Helvetica, Arial, sans-serif;  
+}
+ /*declare global variables*/
+:root{
+    --t-color:rgba(42, 90, 42, 0.815);
+    --p-color:rgba(85, 148, 85, 0.815);
+    --l-color: rgba(128, 128, 128, 0.705);
+}
+/*header starts here*/
+header{
+    padding: 20px 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: var(--t-color);
+    margin: 0;
+}
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+}
+header nav ul li a{
+    padding: 0 20px;
+    font-size: 1rem;
+    color: var(--p-color);
+    text-decoration: none;
+}
+/*header ends here*/
+/*hero starts here*/
+/*hero ends here*/
+/*general style for middel sections start here*/
+.bio, .works, .contact{
+    padding: 20px 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: flex-start;
+    position: relative;
+}
+.section-title{
+    width: 15%;
+    height: 100%;
+    font-size: 1.5rem;
+    padding-right: 20px;
+    text-align: right;
+    color: var(--p-color);
+}
+/*general style for middel sections end here*/
+
+/*About starts here*/
+.bio p{
+    width: 80%;
+    font-size: .85rem;
+    padding: 0 0 0 50px;
+    border-left: var(--p-color) solid 3px;
+    color:var(--l-color);
+}
+.bio p::first-letter{
+    font-weight: bold;
+    font-size: 1.35rem;
+}
+/*About ends here*/
+
+/*Work starts here*/
+/*Work ends here*/
+
+/*Contact starts here*/
+.contact-info{
+    width: 80%;
+    padding:10px 0 0 50px;
+    border-left: var(--p-color) solid 3px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.contact-info a{
+    padding:0 5px;
+    font-size: 1rem;
+    font-style: normal;
+    color: var(--p-color);
+    text-decoration: none;
+    border-bottom: var(--p-color) solid 1px;
+}
+/*Contact ends here*/
+
