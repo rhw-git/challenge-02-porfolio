@@ -201,4 +201,18 @@ header nav ul li a{
     font-weight: bold;
 }
 /*Contact ends here*/
+/*media queries for responsive design starts here*/
+/*media queries for desktop*/
+@media all and (max-width:980px){
+
+}
+/*media queries for tablet adn smaller screen*/
+@media all and (max-width:768px){
+
+}
+/*media queries for phones and smaller screen*/
+@media all and (max-width:575px){
+
+}
+/*media queries for responsive design ends here*/
 
