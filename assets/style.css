@@ -45,6 +45,24 @@ header nav ul li a{
     font-size: var(--link-font-size);
     color: var(--p-color);
     text-decoration: none;
+    position: relative;
+}
+header nav ul li a::before{
+    content: "";
+    background: var(--p-color);
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 6px;
+    left: -.5rem;
+    opacity: 0;
+}
+/*hover effect*/
+header nav ul li a:hover{
+    font-weight: bold;
+}
+header nav ul li a:hover:before{
+    opacity: 1;
 }
 /*header ends here*/
 /*hero starts here*/
@@ -137,12 +155,39 @@ header nav ul li a{
     width: 100%;
     border: 2px solid var(--l-color);
     position: relative;
-    background-color:white;
+    /* background-color:white; */
+}
+.work-grid-item:hover{
+    background-color: rgb(245, 240, 240);
+    border: 5px solid var(--l-color);
 }
 .work-grid-item img{
     max-width: 100%;
     background-size: cover;
     opacity: .5;
+}
+
+.work-grid-item img:hover{
+    opacity: 1;
+}
+/*make the iframe a clickable link*/
+.work-grid-item {
+    position: relative;
+}
+.work-grid-item iframe{
+    opacity: .5;
+    position: absolute;
+}
+.work-grid-item .blocker{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: hsla(0, 100%, 50%, 0);
+}
+/*add hover effects to iframe*/
+.work-grid-item iframe:hover{
+    opacity: 1;
 }
 .work-grid-item div{
     width: 180px;
