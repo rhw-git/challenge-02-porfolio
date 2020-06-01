@@ -19,6 +19,7 @@ body {
     --subTitle-font-size:24px;
     --link-font-size:18px;
     --paragraph-font-size:15px;
+    --paragraph-font-small-size:10px;
 }
 /*header starts here*/
 header{
@@ -32,7 +33,6 @@ header h1 {
     font-weight: bold;
     font-size: var(--title-font-size);
     color: var(--t-color);
-    margin: 0;
 }
 header nav ul{
     display: flex;
@@ -45,6 +45,24 @@ header nav ul li a{
     font-size: var(--link-font-size);
     color: var(--p-color);
     text-decoration: none;
+    position: relative;
+}
+header nav ul li a::before{
+    content: "";
+    background: var(--p-color);
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 6px;
+    left: -.5rem;
+    opacity: 0;
+}
+/*hover effect*/
+header nav ul li a:hover{
+    font-weight: bold;
+}
+header nav ul li a:hover:before{
+    opacity: 1;
 }
 /*header ends here*/
 /*hero starts here*/
@@ -56,7 +74,6 @@ header nav ul li a{
     width: 100%;
     height: 400px;
 }
-
 .hero-content img{;
     height: 60%;
     background-size: cover;
@@ -85,11 +102,10 @@ header nav ul li a{
 /*hero ends here*/
 /*general style for middle sections start here*/
 .bio, .works, .contact{
+    width: 100%;
     padding: 20px 35px;
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
-    justify-content: left;
-    align-items: flex-start;
     position: relative;
     background-color: var(--b-color);
 }
@@ -97,14 +113,18 @@ header nav ul li a{
     width: 15%;
     height: 100%;
     font-size: var(--subTitle-font-size);
-    padding-right: 20px;
+    padding-right: 25px;
     text-align: right;
     color: var(--p-color);
+    display: inline-block;
+    vertical-align: top;
 }
 .flex-right{
     width: 80%;
     padding-left: 50px;
     border-left: var(--p-color) solid 3px;
+    display: inline-block;
+    vertical-align: top;
 }
 /*general style for middle sections end here*/
 /*About starts here*/
@@ -120,8 +140,8 @@ header nav ul li a{
 /*Work starts here*/
 .work-grid-wrapper{
     width: 80%;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
+    /* justify-content: center; */
 }
 .work-grid-container{
     width: 100%;
@@ -135,12 +155,39 @@ header nav ul li a{
     width: 100%;
     border: 2px solid var(--l-color);
     position: relative;
-    background-color: white;
+    /* background-color:white; */
+}
+.work-grid-item:hover{
+    background-color: rgb(245, 240, 240);
+    border: 5px solid var(--l-color);
 }
 .work-grid-item img{
     max-width: 100%;
     background-size: cover;
-    opacity: 70%;
+    opacity: .5;
+}
+
+.work-grid-item img:hover{
+    opacity: 1;
+}
+/*make the iframe a clickable link*/
+.work-grid-item {
+    position: relative;
+}
+.work-grid-item iframe{
+    opacity: .5;
+    position: absolute;
+}
+.work-grid-item .blocker{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: hsla(0, 100%, 50%, 0);
+}
+/*add hover effects to iframe*/
+.work-grid-item iframe:hover{
+    opacity: 1;
 }
 .work-grid-item div{
     width: 180px;
@@ -156,6 +203,7 @@ header nav ul li a{
 }
 .work-grid-item div p{
     font-size: var(--paragraph-font-size);
+    word-wrap: break-word;
 }
 /*here is the only project I have for now...*/
 .project-1 {
@@ -182,23 +230,158 @@ header nav ul li a{
     background-color: var(--l-color);
     padding: 15px 35px;
 }
+.contact .section-title{
+    color: var(--t-color);
+}
+.comtact-info-wrapper{
+    display: inline-block;
+}
 .contact-info{
     padding-top:2.5px;
     text-align: center;
     display: flex;
+    flex-flow: wrap;
     justify-content: space-between;
 }
-.contact .section-title{
-    color: var(--t-color);
-}
 .contact-info a{
-    padding:0 5px;
     font-size: var(--link-font-size);
     font-style: normal;
     color: var(--t-color);
     text-decoration: none;
+    text-justify: center;
     border-bottom: var(--t-color) solid 1px;
     font-weight: bold;
 }
 /*Contact ends here*/
-
+/*media queries for responsive design starts here*/
+/*media queries for desktop*/
+@media all and (max-width:980px){
+    /*push header inward*/
+    header h1{
+        margin-left: 5px;
+    }
+    /*modify hero section */
+    .gradient{
+        height: 250px;
+    }
+    .hero h2{
+        width:40%;
+        bottom: 30%;
+        left: 10%;
+        text-align: left;
+        font-size: 1.5em;
+        white-space:pre;
+        animation: typing 6s steps(49);
+        animation-iteration-count: 1;
+    }  
+    /*general middle sections font size for middle sections end here*/
+    .section-title{
+        font-size: var( --link-font-size);
+    }
+    /*work section */
+    .work-grid-item div{
+        width: 100px;
+    }
+    .work-grid-item div h3{
+        font-size: var(--paragraph-font-size);
+    }
+    .work-grid-item div p{
+        font-size: var(--paragraph-font-small-size);
+    }
+    /*contact section */
+    .contact-info {
+        font-size: var( --link-font-size);
+        padding-top:0;
+    }
+/*media queries for tablet adn smaller screen*/
+@media all and (max-width:768px){
+    /*header section */
+    header nav ul li a:nth-child(1){
+        padding-left: 5px;
+    }
+    /*hero section */
+    .hero h2{
+        font-size: var(--link-font-size);
+    }
+    /*general middle sections reduce margin for all the class .flex right*/
+    .flex-right{
+        padding-left: 20px;
+    }
+    /*work sections - move all the title tage under the linked image*/
+    .work-grid-item div{
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        bottom: .015rem;
+        padding:.25rem .25rem;
+    }
+    .work-grid-item div h3{
+        font-size: var(--paragraph-font-small-size);
+    }
+    .work-grid-item div p{
+        font-size: var(--paragraph-font-small-size);
+    }
+    /*comtact section*/
+    .contact .section-title{
+        width: 100%;
+        flex: 1 1 auto;
+        padding-right: 0px;
+        border-bottom: var(--t-color) solid 2px;
+        text-align: center;
+    }
+    .contact .flex-right{
+        width: 100%;
+        padding-left: 0px;
+        padding-top: .5rem;
+        border-left: none;
+    }
+    .contact-info a{
+        font-size: var(--paragraph-font-size);
+    }
+}
+/*media queries for phones and smaller screen*/
+@media all and (max-width:575px){
+    /*header move the navigation item lower*/
+    header nav ul{
+        padding-top: 20px;
+    }
+    /*modify hero animiation*/
+    .hero-content h2{
+        width: 70%;
+        text-indent: -9999px;
+        left: -5%;
+    }
+    .hero-content h2 span{
+        text-index:9999px;
+    }
+    /*general style for bio and work sections*/
+    .section-title{     
+        width: 100%;
+        flex: 1 1 auto;
+        padding-right: 0px;
+        text-align: center;
+    }
+    .bio h2, .works h2{
+        border-bottom: var(--p-color) solid 2px;
+    } 
+    .flex-right{
+        width: 100%;
+        padding-left: 0px;
+        padding-top: .5rem;
+        border-left: none;
+    }
+    /*modify work sections' css grid*/
+    .work-grid-wrapper{
+        width: 100%;
+    }
+    .work-grid-container{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(5, 1fr);
+        grid-gap: 10px 0;
+    }
+    .project-5{
+        grid-row: 1/span 1;
+        grid-column: 1/span 1;
+    }
+}
+/*media queries for responsive design ends here*/
