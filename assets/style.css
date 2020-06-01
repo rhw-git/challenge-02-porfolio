@@ -166,7 +166,27 @@ header nav ul li a:hover:before{
     background-size: cover;
     opacity: .5;
 }
+
 .work-grid-item img:hover{
+    opacity: 1;
+}
+/*make the iframe a clickable link*/
+.work-grid-item {
+    position: relative;
+}
+.work-grid-item iframe{
+    opacity: .5;
+    position: absolute;
+}
+.work-grid-item .blocker{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: hsla(0, 100%, 50%, 0);
+}
+/*add hover effects to iframe*/
+.work-grid-item iframe:hover{
     opacity: 1;
 }
 .work-grid-item div{
